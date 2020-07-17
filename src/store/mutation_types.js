@@ -1,0 +1,4 @@
+export const ADD_INCOME =  "ADD_INCOME";
+export const ADD_EXPENSE =  "ADD_EXPENSE";
+export const UPDATE_INCOME_LIST = "UPDATE_INCOME_LIST";
+export const UPDATE_EXPENSE_LIST = "UPDATE_EXPENSE_LIST";
