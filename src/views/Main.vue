@@ -1,6 +1,6 @@
 <template>
   <div class="main-view w-screen h-screen">
-      <page-title title="Expense Tracker"></page-title>
+    <page-title title="Expense Tracker"></page-title>
     <div class="main-container">
       <div class="status p-5">
         <div class="total-income-container flex justify-between">
@@ -12,12 +12,18 @@
           <p class="amount text-red-500">&#8377; {{totalExpense}}</p>
         </div>
         <div class="expense-detail">
-            <div v-for="(expenseItem, index) in expenseList" :key="index" class="expense-item flex ml-4 text-sm justify-between">
-                <p class="expense-item-name">{{expenseItem.category}}</p>
-                <p class="expense-item-amount">{{expenseItem.amount}}</p>
-            </div>
+          <div
+            v-for="(expenseItem, index) in expenseList"
+            :key="index"
+            class="expense-item flex ml-4 text-sm justify-between"
+          >
+            <p class="expense-item-name">{{expenseItem.category}}</p>
+            <p class="expense-item-amount">{{expenseItem.amount}}</p>
+          </div>
         </div>
-        <div class="final-balance flex justify-between mt-3 border-t-2 border-solid border-gray-500">
+        <div
+          class="final-balance flex justify-between mt-3 border-t-2 border-solid border-gray-500"
+        >
           <p class="balance-label">Balance</p>
           <p class="balance-amount">&#8377; {{balanceAmount}}</p>
         </div>
@@ -26,27 +32,38 @@
         <div class="daily br-px">
           <p>Daily</p>
         </div>
-                <div class="daily">
+        <div class="daily">
           <p>Weekly</p>
         </div>
-                <div class="daily">
-          <p>Monthly</p>
+        <div class="daily">
+          <p class="font-semibold">Monthly</p>
         </div>
-                <div class="daily">
+        <div class="daily">
           <p>Yearly</p>
         </div>
       </div>
       <div class="menu_options_container flex flex-wrap w-full">
-        <div class="menu_option add_income flex items-center justify-center w-1/2 border border-solid border-gray-300 bg-gray-800 text-gray-200" @click="goTo('AddIncome')">
+        <div
+          class="menu_option add_income flex items-center justify-center w-1/2 border border-solid border-gray-300 bg-gray-800 text-gray-200"
+          @click="goTo('AddIncome')"
+        >
           <p>Add Income</p>
         </div>
-        <div class="menu_option add_expense flex items-center justify-center w-1/2 border border-solid border-gray-300 bg-gray-800 text-gray-200" @click="goTo('AddExpense')">
+        <div
+          class="menu_option add_expense flex items-center justify-center w-1/2 border border-solid border-gray-300 bg-gray-800 text-gray-200"
+          @click="goTo('AddExpense')"
+        >
           <p>Add Expense</p>
         </div>
-        <div class="menu_option all_transaction flex items-center justify-center w-1/2 border border-solid border-gray-300 bg-gray-800 text-gray-200" @click="goTo('AllTransactions')">
+        <div
+          class="menu_option all_transaction flex items-center justify-center w-1/2 border border-solid border-gray-300 bg-gray-800 text-gray-200"
+          @click="goTo('AllTransactions')"
+        >
           <p>All transaction</p>
         </div>
-        <div class="menu_option settings flex items-center justify-center w-1/2 border border-solid border-gray-300 bg-gray-800 text-gray-200">
+        <div
+          class="menu_option settings flex items-center justify-center w-1/2 border border-solid border-gray-300 bg-gray-800 text-gray-200"
+        >
           <p>Settings</p>
         </div>
       </div>
@@ -55,7 +72,7 @@
 </template>
 <script>
 import { mapState } from "vuex";
-import PageTitle from "../components/PageTitle"
+import PageTitle from "../components/PageTitle";
 export default {
   name: "Main",
   data() {
@@ -63,9 +80,9 @@ export default {
   },
   computed: {
     ...mapState(["totalIncome", "totalExpense", "expenseList"]),
-    balanceAmount(){
-        let _this = this;
-        return _this.totalIncome - _this.totalExpense;
+    balanceAmount() {
+      let _this = this;
+      return _this.totalIncome - _this.totalExpense;
     }
   },
   methods: {
@@ -75,7 +92,7 @@ export default {
     }
   },
   components: {
-      PageTitle
+    PageTitle
   }
 };
 </script>
